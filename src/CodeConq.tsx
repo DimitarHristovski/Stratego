@@ -18,7 +18,8 @@ import {
 } from "react-icons/si";
 import { IoPerson } from "react-icons/io5";
 import { motion } from "framer-motion";
-import type { JSX } from "react/jsx-runtime";
+
+
 
 const GRID_SIZE = 8;
 
