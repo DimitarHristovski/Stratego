@@ -165,65 +165,77 @@ function CodeConq() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-6 space-y-4 bg-gray-50">
-      <h1 className="text-3xl font-bold mb-4">CodeConq</h1>
-      <button onClick={restartGame} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">🔄 Restart Game</button>
+    <div className="flex flex-col items-center p-4 sm:p-6 space-y-4 bg-gray-50 min-h-screen">
+      <h1 className="text-3xl font-bold">CodeConq</h1>
+      <button
+        onClick={restartGame}
+        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        🔄 Restart Game
+      </button>
       <div className="text-sm text-gray-700">Round: {round}</div>
-      <div className="flex flex-row items-start gap-8">
-        <div className="grid grid-cols-8 grid-rows-8 gap-2 w-fit border-2 border-gray-300 bg-white p-4 rounded-lg shadow-lg">
-          {[...Array(GRID_SIZE)].flatMap((_, y) =>
-            [...Array(GRID_SIZE)].map((_, x) => {
-              const u = getUnit(x, y);
-              const isSelected = u?.id === selectedId;
-              const key = `${x},${y}`;
-              const isMove = highlightMove.includes(key);
-              const isAttack = highlightAttack.includes(key);
-              const Icon = u?.Icon;
-              const percent = u ? (u.hp / u.maxHp) * 100 : 0;
-              return (
-                <motion.div
-                  key={key}
-                  onClick={() => handleClick(x, y)}
-                  whileTap={{ scale: 0.9 }}
-                  className={`w-20 h-24 flex flex-col items-center justify-center border-2 border-gray-200 text-sm cursor-pointer transition-all duration-200
-                    ${isSelected ? "bg-yellow-300 hover:bg-yellow-400" : isMove ? "bg-green-200 hover:bg-green-300" : isAttack ? "bg-red-200 hover:bg-red-300" : "bg-white hover:bg-gray-100"}`}
-                >
-                  {Icon && (
-                    <>
-                      <div className="text-2xl mb-1"><Icon /></div>
-                      <div className="w-full h-2 bg-gray-300 rounded">
-                        <div className={`h-2 ${getHpBarColor(percent)} rounded`} style={{ width: `${percent}%` }}></div>
-                      </div>
-                      <div className="text-xs mt-1">{u.hp} HP</div>
-                    </>
-                  )}
-                </motion.div>
-              );
-            })
-          )}
+  
+      {/* Selected Unit Display */}
+      {selected && (
+        <div className="p-2 sm:p-3 bg-gray-100 border rounded text-xs sm:text-sm w-full max-w-md shadow-lg">
+          <h2 className="font-bold mb-1">Selected Unit</h2>
+          <p>🧱 <strong>{selected.name}</strong></p>
+          <p>❤️ HP: {selected.hp}</p>
+          <p>🎯 Attack: {selected.attack}</p>
+          <p>🎯 Range: {selected.range}</p>
+          <p>🚶‍♂️ Move: {selected.move}</p>
+          {selected.special && <p>⭐ Special: {selected.special}</p>}
         </div>
-        {selected && (
-          <div className="p-3 bg-gray-100 border rounded text-sm w-60 shadow-lg">
-            <h2 className="font-bold mb-1">Selected Unit</h2>
-            <p>🧱 <strong>{selected.name}</strong></p>
-            <p>❤️ HP: {selected.hp}</p>
-            <p>🎯 Attack: {selected.attack}</p>
-            <p>🎯 Range: {selected.range}</p>
-            <p>🚶‍♂️ Move: {selected.move}</p>
-            {selected.special && <p>⭐ Special: {selected.special}</p>}
-          </div>
+      )}
+  
+      {/* Game Grid */}
+      <div className="grid grid-cols-8 grid-rows-8 gap-2 w-fit border-2 border-gray-300 bg-white p-4 rounded-lg shadow-lg">
+        {[...Array(GRID_SIZE)].flatMap((_, y) =>
+          [...Array(GRID_SIZE)].map((_, x) => {
+            const u = getUnit(x, y);
+            const isSelected = u?.id === selectedId;
+            const key = `${x},${y}`;
+            const isMove = highlightMove.includes(key);
+            const isAttack = highlightAttack.includes(key);
+            const Icon = u?.Icon;
+            const percent = u ? (u.hp / u.maxHp) * 100 : 0;
+            return (
+              <motion.div
+                key={key}
+                onClick={() => handleClick(x, y)}
+                whileTap={{ scale: 0.9 }}
+                className={`w-12 h-16 sm:w-20 sm:h-24 flex flex-col items-center justify-center border-2 border-gray-200 text-xs sm:text-sm cursor-pointer transition-all duration-200
+                ${isSelected ? "bg-yellow-300 hover:bg-yellow-400" : isMove ? "bg-green-200 hover:bg-green-300" : isAttack ? "bg-red-200 hover:bg-red-300" : "bg-white hover:bg-gray-100"}`}
+              >
+                {Icon && (
+                  <>
+                    <div className="text-2xl mb-1"><Icon /></div>
+                    <div className="w-full h-2 bg-gray-300 rounded">
+                      <div className={`h-2 ${getHpBarColor(percent)} rounded`} style={{ width: `${percent}%` }}></div>
+                    </div>
+                    <div className="text-xs mt-1">{u.hp} HP</div>
+                  </>
+                )}
+              </motion.div>
+            );
+          })
         )}
       </div>
+  
+      {/* Turn Info */}
       <div className="text-lg font-semibold">
         {checkEnd() || `${turn.toUpperCase()} TURN`}
       </div>
-      <div className="max-h-32 overflow-y-auto border p-2 text-sm bg-gray-100 w-full max-w-xl">
+  
+      {/* Battle Log */}
+      <div className="max-h-32 overflow-y-auto border p-2 text-xs sm:text-sm bg-gray-100 w-full max-w-md sm:max-w-xl">
         {log.map((line, i) => (
           <div key={i}>{line}</div>
         ))}
       </div>
     </div>
   );
+  
 }
 
 export default CodeConq;
