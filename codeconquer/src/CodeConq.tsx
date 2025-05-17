@@ -33,29 +33,28 @@ const getHpBarColor = (percent: number) => {
 
 const initialUnits = [
   // Player Units
-  { id: "Me", team: "player", name: "Me", hp: 300, maxHp: 300, x: 0, y: 2, range: 1, move: 1, attack: 50, special: "Boss", Icon: getIconComponent(IoPerson) },
-  { id: "react", team: "player", name: "React", hp: 100, maxHp: 100, x: 0, y: 0, range: 1, move: 1, attack: 30, special: "Double hit on first attack", Icon: getIconComponent(SiReact) },
-  { id: "figma", team: "player", name: "Figma", hp: 80, maxHp: 80, x: 1, y: 0, range: 1, move: 1, attack: 30, special: "Can scan enemies in range", Icon: getIconComponent(SiFigma) },
+  { id: "react", team: "player", name: "React", hp: 100, maxHp: 100, x: 5, y: 1, range: 1, move: 1, attack: 30, special: "Double hit on first attack", Icon: getIconComponent(SiReact) },
+  { id: "figma", team: "player", name: "Figma", hp: 180, maxHp: 180, x: 1, y: 0, range: 1, move: 1, attack: 30, special: "Can scan enemies in range", Icon: getIconComponent(SiFigma) },
   { id: "supabase", team: "player", name: "Supabase", hp: 120, maxHp: 120, x: 2, y: 0, range: 1, move: 1, attack: 30, support: true, special: "Heals adjacent allies", Icon: getIconComponent(SiSupabase) },
-  { id: "typescript", team: "player", name: "TypeScript", hp: 90, maxHp: 90, x: 3, y: 0, range: 1, move: 1, attack: 30, special: "Always hits for minimum damage", Icon: getIconComponent(SiTypescript) },
-  { id: "vercel", team: "player", name: "Vercel", hp: 70, maxHp: 70, x: 4, y: 0, range: 1, move: 1, attack: 30, special: "Fast deploy: can move twice", Icon: getIconComponent(SiVercel) },
+  { id: "typescript", team: "player", name: "TypeScript", hp: 190, maxHp: 190, x: 3, y: 0, range: 1, move: 1, attack: 30, special: "Always hits for minimum damage", Icon: getIconComponent(SiTypescript) },
+  { id: "vercel", team: "player", name: "Vercel", hp: 170, maxHp: 170, x: 4, y: 0, range: 1, move: 1, attack: 30, special: "Fast deploy: can move twice", Icon: getIconComponent(SiVercel) },
   { id: "node", team: "player", name: "Node.js", hp: 110, maxHp: 110, x: 5, y: 0, range: 1, move: 1, attack: 30, special: "Area attack", Icon: getIconComponent(SiNodedotjs) },
-  { id: "n8n", team: "player", name: "n8n", hp: 95, maxHp: 95, x: 6, y: 0, range: 1, move: 1, attack: 30, special: "Automates attacks every other turn", Icon: getIconComponent(SiN8N) },
-  { id: "tailwind", team: "player", name: "Tailwind", hp: 85, maxHp: 85, x: 7, y: 0, range: 1, move: 1, attack: 30, special: "Styles the board with power boosts", Icon: getIconComponent(SiTailwindcss) },
-  { id: "shadcn", team: "player", name: "Shadcn UI", hp: 90, maxHp: 90, x: 0, y: 1, range: 1, move: 1, attack: 30, special: "Buffs UI-based units nearby", Icon: getIconComponent(SiShadcnui) },
+  { id: "n8n", team: "player", name: "n8n", hp: 195, maxHp: 195, x: 6, y: 0, range: 1, move: 1, attack: 30, special: "Automates attacks every other turn", Icon: getIconComponent(SiN8N) },
+  { id: "tailwind", team: "player", name: "Tailwind", hp: 185, maxHp: 185, x: 6, y: 1, range: 1, move: 1, attack: 30, special: "Styles the board with power boosts", Icon: getIconComponent(SiTailwindcss) },
+  { id: "shadcn", team: "player", name: "Shadcn UI", hp: 190, maxHp: 190, x: 4, y: 1, range: 1, move: 1, attack: 30, special: "Buffs UI-based units nearby", Icon: getIconComponent(SiShadcnui) },
   { id: "nextjs", team: "player", name: "Next.js", hp: 100, maxHp: 100, x: 1, y: 1, range: 1, move: 1, attack: 30, special: "Server-side strike from distance", Icon: getIconComponent(SiNextdotjs) },
   { id: "postgresql", team: "player", name: "PostgreSQL", hp: 105, maxHp: 105, x: 2, y: 1, range: 1, move: 1, attack: 30, special: "Data-driven defense aura", Icon: getIconComponent(SiPostgresql) },
-  { id: "mongodb", team: "player", name: "MongoDB", hp: 95, maxHp: 95, x: 3, y: 1, range: 1, move: 1, attack: 30, special: "NoSQL scatter shot", Icon: getIconComponent(SiMongodb) },
+  { id: "mongodb", team: "player", name: "MongoDB", hp: 195, maxHp: 195, x: 3, y: 1, range: 1, move: 1, attack: 30, special: "NoSQL scatter shot", Icon: getIconComponent(SiMongodb) },
 
   // Enemy Units
   { id: "HR1", team: "enemy", name: "HR1", hp: 180, maxHp: 180, x: 4, y: 7, range: 1, move: 1, attack: 15, Icon: getIconComponent(IoPerson) },
   { id: "HR2", team: "enemy", name: "HR2", hp: 160, maxHp: 160, x: 5, y: 7, range: 1, move: 1, attack: 18, Icon: getIconComponent(IoPerson) },
   { id: "HR3", team: "enemy", name: "HR3", hp: 140, maxHp: 140, x: 6, y: 7, range: 1, move: 1, attack: 16, Icon: getIconComponent(IoPerson) },
   { id: "HR4", team: "enemy", name: "HR4", hp: 170, maxHp: 170, x: 7, y: 7, range: 1, move: 1, attack: 12, Icon: getIconComponent(IoPerson) },
-  { id: "HR5", team: "enemy", name: "HR5", hp: 90, maxHp: 90, x: 4, y: 6, range: 2, move: 1, attack: 10, special: "Long-range ping", Icon: getIconComponent(IoPerson) },
+  { id: "HR5", team: "enemy", name: "HR5", hp: 90, maxHp: 90, x: 4, y: 6, range: 1, move: 1, attack: 10, special: "Long-range ping", Icon: getIconComponent(IoPerson) },
   { id: "HR6", team: "enemy", name: "HR6", hp: 120, maxHp: 120, x: 5, y: 6, range: 1, move: 1, attack: 14, Icon: getIconComponent(IoPerson) },
   { id: "HR7", team: "enemy", name: "HR7", hp: 100, maxHp: 100, x: 6, y: 6, range: 1, move: 1, attack: 13, Icon: getIconComponent(IoPerson) },
-  { id: "HR8", team: "enemy", name: "HR8", hp: 80, maxHp: 80, x: 7, y: 6, range: 1, move: 2, attack: 17, special: "Fast scout", Icon: getIconComponent(IoPerson) },
+  { id: "HR8", team: "enemy", name: "HR8", hp: 80, maxHp: 80, x: 7, y: 6, range: 1, move: 1, attack: 17, special: "Fast scout", Icon: getIconComponent(IoPerson) },
   { id: "HR9", team: "enemy", name: "HR9", hp: 130, maxHp: 130, x: 3, y: 6, range: 1, move: 1, attack: 19, Icon: getIconComponent(IoPerson) },
   { id: "HR10", team: "enemy", name: "HR10", hp: 150, maxHp: 150, x: 2, y: 6, range: 1, move: 1, attack: 21, special: "Resistant armor", Icon: getIconComponent(IoPerson) },
 ];
@@ -152,8 +151,8 @@ function CodeConq() {
   const checkEnd = () => {
     const playerLeft = units.some((u) => u.team === "player");
     const enemyLeft = units.some((u) => u.team === "enemy");
-    if (!playerLeft) return "Game Over - Bugs Win!";
-    if (!enemyLeft) return "Victory - Clean Code Prevails!";
+    if (!playerLeft) return "Game Over - Enemy Win!";
+    if (!enemyLeft) return "Victory - Player wins!";
     return null;
   };
 
