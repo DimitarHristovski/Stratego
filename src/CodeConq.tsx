@@ -199,8 +199,7 @@ function CodeConq() {
                     <div className="w-full h-2 bg-gray-300 rounded">
                       <div className={`h-2 ${getHpBarColor(percent)} rounded`} style={{ width: `${percent}%` }}></div>
                     </div>
-                    <div className="text-xs mt-1">{u.hp} HP</div>
-                    <div className="text-xs mt-1">{role}</div>
+                    <div className="text-xs mt-1">{u.hp} HP {role}</div>
 
                   </>
                 )}
