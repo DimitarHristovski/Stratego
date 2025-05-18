@@ -2,28 +2,14 @@
 // Now includes: Health Bars, Kill Counters, and Special Ability Tooltips
 
 import { useState, useEffect } from "react";
-import {
-  SiSupabase,
-  SiReact,
-  SiFigma,
-  SiNextdotjs,
-  SiVercel,
-  SiN8N,
-  SiTailwindcss,
-  SiTypescript,
-  SiNodedotjs,
-  SiPostgresql,
-  SiMongodb,
-  SiShadcnui,
-} from "react-icons/si";
-import { IoPerson } from "react-icons/io5";
+
+import { formations } from "./Units/InitialUnits";
 import { motion } from "framer-motion";
 
 
 
 const GRID_SIZE = 8;
 
-const getIconComponent = (IconComponent: React.ElementType) => () => <IconComponent />;
 
 const getHpBarColor = (percent: number) => {
   if (percent > 60) return "bg-green-500";
@@ -32,36 +18,11 @@ const getHpBarColor = (percent: number) => {
 };
 
 
-const initialUnits = [
-  // Player Units
-  { id: "react", team: "player", name: "React", hp: 100, maxHp: 100, x: 5, y: 1, range: 1, move: 1, attack: 30, special: "Double hit on first attack", Icon: getIconComponent(SiReact) },
-  { id: "figma", team: "player", name: "Figma", hp: 180, maxHp: 180, x: 1, y: 0, range: 1, move: 1, attack: 30, special: "Can scan enemies in range", Icon: getIconComponent(SiFigma) },
-  { id: "supabase", team: "player", name: "Supabase", hp: 120, maxHp: 120, x: 2, y: 0, range: 1, move: 1, attack: 30, support: true, special: "Heals adjacent allies", Icon: getIconComponent(SiSupabase) },
-  { id: "typescript", team: "player", name: "TypeScript", hp: 190, maxHp: 190, x: 3, y: 0, range: 1, move: 1, attack: 30, special: "Always hits for minimum damage", Icon: getIconComponent(SiTypescript) },
-  { id: "vercel", team: "player", name: "Vercel", hp: 170, maxHp: 170, x: 4, y: 0, range: 1, move: 1, attack: 30, special: "Fast deploy: can move twice", Icon: getIconComponent(SiVercel) },
-  { id: "node", team: "player", name: "Node.js", hp: 110, maxHp: 110, x: 5, y: 0, range: 1, move: 1, attack: 30, special: "Area attack", Icon: getIconComponent(SiNodedotjs) },
-  { id: "n8n", team: "player", name: "n8n", hp: 195, maxHp: 195, x: 6, y: 0, range: 1, move: 1, attack: 30, special: "Automates attacks every other turn", Icon: getIconComponent(SiN8N) },
-  { id: "tailwind", team: "player", name: "Tailwind", hp: 185, maxHp: 185, x: 6, y: 1, range: 1, move: 1, attack: 30, special: "Styles the board with power boosts", Icon: getIconComponent(SiTailwindcss) },
-  { id: "shadcn", team: "player", name: "Shadcn UI", hp: 190, maxHp: 190, x: 4, y: 1, range: 1, move: 1, attack: 30, special: "Buffs UI-based units nearby", Icon: getIconComponent(SiShadcnui) },
-  { id: "nextjs", team: "player", name: "Next.js", hp: 100, maxHp: 100, x: 1, y: 1, range: 1, move: 1, attack: 30, special: "Server-side strike from distance", Icon: getIconComponent(SiNextdotjs) },
-  { id: "postgresql", team: "player", name: "PostgreSQL", hp: 105, maxHp: 105, x: 2, y: 1, range: 1, move: 1, attack: 30, special: "Data-driven defense aura", Icon: getIconComponent(SiPostgresql) },
-  { id: "mongodb", team: "player", name: "MongoDB", hp: 195, maxHp: 195, x: 3, y: 1, range: 1, move: 1, attack: 30, special: "NoSQL scatter shot", Icon: getIconComponent(SiMongodb) },
 
-  // Enemy Units
-  { id: "HR1", team: "enemy", name: "HR1", hp: 180, maxHp: 180, x: 4, y: 7, range: 1, move: 1, attack: 15, Icon: getIconComponent(IoPerson) },
-  { id: "HR2", team: "enemy", name: "HR2", hp: 160, maxHp: 160, x: 5, y: 7, range: 1, move: 1, attack: 18, Icon: getIconComponent(IoPerson) },
-  { id: "HR3", team: "enemy", name: "HR3", hp: 140, maxHp: 140, x: 6, y: 7, range: 1, move: 1, attack: 16, Icon: getIconComponent(IoPerson) },
-  { id: "HR4", team: "enemy", name: "HR4", hp: 170, maxHp: 170, x: 7, y: 7, range: 1, move: 1, attack: 12, Icon: getIconComponent(IoPerson) },
-  { id: "HR5", team: "enemy", name: "HR5", hp: 90, maxHp: 90, x: 4, y: 6, range: 1, move: 1, attack: 10, special: "Long-range ping", Icon: getIconComponent(IoPerson) },
-  { id: "HR6", team: "enemy", name: "HR6", hp: 120, maxHp: 120, x: 5, y: 6, range: 1, move: 1, attack: 14, Icon: getIconComponent(IoPerson) },
-  { id: "HR7", team: "enemy", name: "HR7", hp: 100, maxHp: 100, x: 6, y: 6, range: 1, move: 1, attack: 13, Icon: getIconComponent(IoPerson) },
-  { id: "HR8", team: "enemy", name: "HR8", hp: 80, maxHp: 80, x: 7, y: 6, range: 1, move: 1, attack: 17, special: "Fast scout", Icon: getIconComponent(IoPerson) },
-  { id: "HR9", team: "enemy", name: "HR9", hp: 130, maxHp: 130, x: 3, y: 6, range: 1, move: 1, attack: 19, Icon: getIconComponent(IoPerson) },
-  { id: "HR10", team: "enemy", name: "HR10", hp: 150, maxHp: 150, x: 2, y: 6, range: 1, move: 1, attack: 21, special: "Resistant armor", Icon: getIconComponent(IoPerson) },
-];
 
 function CodeConq() {
-  const [units, setUnits] = useState(initialUnits);
+  const [currentFormation, setCurrentFormation] = useState<keyof typeof formations>("phalanx");
+  const [units, setUnits] = useState(formations[currentFormation]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [turn, setTurn] = useState("player");
   const [log, setLog] = useState<string[]>([]);
@@ -158,12 +119,25 @@ function CodeConq() {
   };
 
   const restartGame = () => {
-    setUnits(JSON.parse(JSON.stringify(initialUnits)));
+    const formationKeys = Object.keys(formations) as Array<keyof typeof formations>;
+    const currentIndex = formationKeys.indexOf(currentFormation);
+    const nextFormation = formationKeys[(currentIndex + 1) % formationKeys.length];
+    
+    // Reset all game state
     setSelectedId(null);
     setTurn("player");
     setLog([]);
     setRound(1);
+    
+    // Update formation and units in sequence
+    setCurrentFormation(nextFormation);
+    setUnits(formations[nextFormation]);
   };
+
+  // Add useEffect to handle formation changes
+  useEffect(() => {
+    setUnits(formations[currentFormation]);
+  }, [currentFormation]);
 
   return (
     <div className="flex flex-col items-center p-4 sm:p-6 space-y-4 bg-gray-50 min-h-screen">
@@ -172,8 +146,9 @@ function CodeConq() {
         onClick={restartGame}
         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
       >
-        🔄 Restart Game
+        🔄 Switch to {Object.keys(formations)[(Object.keys(formations).indexOf(currentFormation) + 1) % Object.keys(formations).length]} Formation
       </button>
+      <div className="text-sm text-gray-700">Current Formation: {currentFormation}</div>
       <div className="text-sm text-gray-700">Round: {round}</div>
   
       {/* Selected Unit Display */}
@@ -200,6 +175,7 @@ function CodeConq() {
             const isAttack = highlightAttack.includes(key);
             const Icon = u?.Icon;
             const percent = u ? (u.hp / u.maxHp) * 100 : 0;
+            const role = u?.role;
             return (
               <motion.div
                 key={key}
@@ -215,6 +191,8 @@ function CodeConq() {
                       <div className={`h-2 ${getHpBarColor(percent)} rounded`} style={{ width: `${percent}%` }}></div>
                     </div>
                     <div className="text-xs mt-1">{u.hp} HP</div>
+                    <div className="text-xs mt-1">{role}</div>
+
                   </>
                 )}
               </motion.div>
