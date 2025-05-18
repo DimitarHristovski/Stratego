@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 import { formations } from "./Units/InitialUnits";
 import { motion } from "framer-motion";
-
+import type { Unit } from "./types/game";
 
 
 const GRID_SIZE = 8;
@@ -31,7 +31,6 @@ function CodeConq() {
   const getUnit = (x: number, y: number) => units.find((u) => u.x === x && u.y === y);
   const getUnitById = (id: string | null) => units.find((u) => u.id === id);
   const isInRange = (a: any, b: any, range: number) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y) <= range;
-
   const selected = getUnitById(selectedId);
 
   const highlightMove = selected ? [...Array(GRID_SIZE)].flatMap((_, y) =>
@@ -160,6 +159,8 @@ function CodeConq() {
           <p>🎯 Attack: {selected.attack}</p>
           <p>🎯 Range: {selected.range}</p>
           <p>🚶‍♂️ Move: {selected.move}</p>
+          <p>🚶‍♂️ Role: {selected.role}</p>
+
           {selected.special && <p>⭐ Special: {selected.special}</p>}
         </div>
       )}
