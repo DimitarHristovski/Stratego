@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 
 import { formations } from "./Units/InitialUnits";
 import { motion } from "framer-motion";
-import type { Unit } from "./types/game";
 
 
 const GRID_SIZE = 8;
