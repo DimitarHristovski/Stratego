@@ -50,28 +50,28 @@ const generateRandomStats = (role: string) => {
       break;
       //Bad
     case "Bug":
-      hp = Math.floor(Math.random() * (200 - 50) + 50);
+      hp = Math.floor(Math.random() * (500 - 50) + 50);
       maxHp = hp;
-      attack = Math.floor(Math.random() * (100 - 20) + 1);
+      attack = Math.floor(Math.random() * (50 - 1) + 1);
       break;
       case "Virus":
-        hp = Math.floor(Math.random() * (500 - 50) + 50);
+        hp = Math.floor(Math.random() * (200 - 50) + 50);
         maxHp = hp;
-        attack = Math.floor(Math.random() * (100 - 1) + 1);
+        attack = Math.floor(Math.random() * (100 - 50) + 50);
         break;
       case "Trojan":
         hp = Math.floor(Math.random() * (300 - 200) + 200);
         maxHp = hp;
-        attack = Math.floor(Math.random() * (100 - 50) + 1);
+        attack = Math.floor(Math.random() * (100 - 50) + 50);
         break;
         case "Worm":
           hp = Math.floor(Math.random() * (400 - 300) + 300);
           maxHp = hp;
-          attack = Math.floor(Math.random() * (100 - 75) + 1);
+          attack = Math.floor(Math.random() * (100 - 75) + 75);
           break;
        
       case "Hacker":
-        hp = Math.floor(Math.random() * (1500 - 1250) + 1250);
+        hp = Math.floor(Math.random() * (2000 - 1250) + 1250);
         maxHp = hp;
         attack = Math.floor(Math.random() * (270 - 140) + 140);
         break;
