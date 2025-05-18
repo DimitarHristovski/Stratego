@@ -20,7 +20,7 @@ const getHpBarColor = (percent: number) => {
 
 
 function CodeConq() {
-  const [currentFormation, setCurrentFormation] = useState<keyof typeof formations>("phalanx");
+  const [currentFormation, setCurrentFormation] = useState<keyof typeof formations>("Phalanx");
   const [units, setUnits] = useState(formations[currentFormation]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [turn, setTurn] = useState("player");
