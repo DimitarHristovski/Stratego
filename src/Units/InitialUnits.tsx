@@ -194,7 +194,7 @@ const generateRandomStats = (role: string) => {
   ], 
   KingsGuard: [
     // Center control
-    { id: "Security", team: "player", name: "Security", ...generateRandomStats("Secuirty"), x: 3, y: 3, range: 2, move: 2, special: "Secuirty Wrath", role: "Secuirty", Icon: getIconComponent(MdSecurity) },
+    { id: "Security", team: "player", name: "Security", ...generateRandomStats("Security"), x: 3, y: 3, range: 2, move: 2, special: "Security Wrath", role: "Security", Icon: getIconComponent(MdSecurity) },
 
     // Enemy flanking sides (6 enemies to match 1 player)
     { id: "VIRUS1", team: "enemy", name: "Worm", ...generateRandomStats("enemy"), x: 0, y: 0, range: 1, move: 2, special: "Spread corruption", role: "enemy", Icon: getIconComponent(FaWorm) },
