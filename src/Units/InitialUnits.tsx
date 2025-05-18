@@ -416,11 +416,11 @@ const generateRandomStats = (role: string) => {
     // Enemies
     { id: "BUG1", team: "enemy", name: "Bug", ...generateRandomStats("Bug"), x: 3, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug), },
     { id: "BUG2", team: "enemy", name: "Bug", ...generateRandomStats("Trojan"), x: 2, y: 6, range: 1, move: 1, role: "Trojan", Icon: getIconComponent(GiTrojanHorse),  },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("Worm)"), x: 4, y: 6, range: 1, move: 1, role: "Worm)", Icon: getIconComponent(FaWorm),  },
+    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("Worm)"), x: 4, y: 6, range: 1, move: 1, role: "Worm", Icon: getIconComponent(FaWorm),  },
     { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("Virus"), x: 1, y: 5, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill),  },
     { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Bug"), x: 5, y: 5, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug),  },
     { id: "VIRUS4", team: "enemy", name: "Spyware", ...generateRandomStats("Trojan"), x: 0, y: 4, range: 1, move: 1, role: "Trojan", Icon: getIconComponent(GiTrojanHorse),  },
-    { id: "VIRUS5", team: "enemy", name: "Rootkit", ...generateRandomStats("Worm)"), x: 6, y: 4, range: 1, move: 1, role: "Worm)", Icon: getIconComponent(FaWorm),}
+    { id: "VIRUS5", team: "enemy", name: "Rootkit", ...generateRandomStats("Worm"), x: 6, y: 4, range: 1, move: 1, role: "Worm", Icon: getIconComponent(FaWorm),}
   ]
 
   };
