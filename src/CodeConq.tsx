@@ -140,7 +140,7 @@ function CodeConq() {
 
   return (
     <div className="flex flex-col items-center p-4 sm:p-6 space-y-4 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold">CodeConq</h1>
+      <h1 className="text-3xl font-bold">CodeWars</h1>
       <button
         onClick={restartGame}
         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -164,7 +164,16 @@ function CodeConq() {
           {selected.special && <p>⭐ Special: {selected.special}</p>}
         </div>
       )}
-  
+     {/* Turn Info */}
+     <div className="text-lg font-semibold">
+        {checkEnd() || `${turn.toUpperCase()} TURN`}
+      </div>
+          {/* Battle Log */}
+          <div className="max-h-32 overflow-y-auto border p-2 text-xs sm:text-sm bg-gray-100 w-full max-w-md sm:max-w-xl">
+        {log.map((line, i) => (
+          <div key={i}>{line}</div>
+        ))}
+      </div>
       {/* Game Grid */}
       <div className="grid grid-cols-8 grid-rows-8 gap-2 w-fit border-2 border-gray-300 bg-white p-4 rounded-lg shadow-lg">
         {[...Array(GRID_SIZE)].flatMap((_, y) =>
@@ -202,17 +211,9 @@ function CodeConq() {
         )}
       </div>
   
-      {/* Turn Info */}
-      <div className="text-lg font-semibold">
-        {checkEnd() || `${turn.toUpperCase()} TURN`}
-      </div>
+   
   
-      {/* Battle Log */}
-      <div className="max-h-32 overflow-y-auto border p-2 text-xs sm:text-sm bg-gray-100 w-full max-w-md sm:max-w-xl">
-        {log.map((line, i) => (
-          <div key={i}>{line}</div>
-        ))}
-      </div>
+  
     </div>
   );
   
