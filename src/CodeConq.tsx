@@ -160,7 +160,6 @@ function CodeConq() {
           <p>🚶‍♂️ Move: {selected.move}</p>
           <p>🚶‍♂️ Role: {selected.role}</p>
 
-          {selected.special && <p>⭐ Special: {selected.special}</p>}
         </div>
       )}
      {/* Turn Info */}

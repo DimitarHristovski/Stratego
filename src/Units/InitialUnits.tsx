@@ -1,25 +1,25 @@
 import {
-  SiSupabase,
-  SiReact,
-  SiFigma,
-  SiNextdotjs,
-  SiVercel,
-  SiN8N,
-  SiTailwindcss,
-  SiTypescript,
-  SiNodedotjs,
-  SiPostgresql,
-  SiMongodb,
-  SiShadcnui,
-} from "react-icons/si";
-import { FaBug } from "react-icons/fa";
-import { FaWorm } from "react-icons/fa6";
-import { GiTrojanHorse } from "react-icons/gi";
-import { PiVirusFill } from "react-icons/pi";
+    SiSupabase,
+    SiReact,
+    SiFigma,
+    SiNextdotjs,
+    SiVercel,
+    SiN8N,
+    SiTailwindcss,
+    SiTypescript,
+    SiNodedotjs,
+    SiPostgresql,
+    SiMongodb,
+    SiShadcnui,
+  } from "react-icons/si";
+  import { FaBug } from "react-icons/fa";
+  import { FaWorm } from "react-icons/fa6";
+  import { GiTrojanHorse } from "react-icons/gi";
+  import { PiVirusFill } from "react-icons/pi";
 import { MdSecurity } from "react-icons/md";
 import { IoMdPerson } from "react-icons/io";
 
-const getIconComponent = (IconComponent: React.ElementType) => () => <IconComponent />;
+  const getIconComponent = (IconComponent: React.ElementType) => () => <IconComponent />;
 
 // Function to generate random stats based on role
 const generateRandomStats = (role: string) => {
@@ -65,25 +65,25 @@ const generateRandomStats = (role: string) => {
   return { hp, maxHp, attack };
 };
 
-export const formations = {
-  phalanx: [
-    // FRONTEND UNITS (Up front)
-    { id: "react", team: "player", name: "React", ...generateRandomStats("Support"), x: 1, y: 0, range: 1, move: 5, special: "Double hit on first attack", role: "Support C", Icon: getIconComponent(SiReact) },
-    { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 2, y: 0, range: 5, move: 1, special: "Can scan enemies in range", role: "Support A", Icon: getIconComponent(SiFigma) },
-    { id: "vercel", team: "player", name: "Vercel", ...generateRandomStats("Fighter"), x: 3, y: 0, range: 1, move: 1, special: "Fast deploy: can move twice", role: "Fighter", Icon: getIconComponent(SiVercel) },
-    { id: "tailwind", team: "player", name: "Tailwind", ...generateRandomStats("Fighter"), x: 4, y: 0, range: 1, move: 1, special: "Styles the board with power boosts", role: "Fighter", Icon: getIconComponent(SiTailwindcss) },
-    { id: "nextjs", team: "player", name: "Next.js", ...generateRandomStats("Support"), x: 5, y: 0, range: 5, move: 1, special: "Server-side strike from distance", role: "Support A", Icon: getIconComponent(SiNextdotjs) },
-    { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 6, y: 0, range: 1, move: 5, special: "Buffs UI-based units nearby", role: "Support C", Icon: getIconComponent(SiShadcnui) },
-
-    // BACKEND UNITS (Behind front line)
-    { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 1, y: 1, range: 1, move: 1, special: "Always hits for minimum damage", role: "Tank", Icon: getIconComponent(SiTypescript) },
-    { id: "postgresql", team: "player", name: "PostgreSQL", ...generateRandomStats("Tank"), x: 2, y: 1, range: 1, move: 1, special: "Data-driven defense aura", role: "Tank", Icon: getIconComponent(SiPostgresql) },
-    { id: "mongodb", team: "player", name: "MongoDB", ...generateRandomStats("Tank"), x: 3, y: 1, range: 1, move: 1, special: "NoSQL scatter shot", role: "Tank", Icon: getIconComponent(SiMongodb) },
-    { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Tank"), x: 4, y: 1, range: 1, move: 1, support: true, special: "Heals adjacent allies", role: "Tank", Icon: getIconComponent(SiSupabase) },
-    { id: "n8n", team: "player", name: "n8n", ...generateRandomStats("Tank"), x: 5, y: 1, range: 1, move: 1, special: "Automates attacks every other turn", role: "Tank", Icon: getIconComponent(SiN8N) },
-    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 6, y: 1, range: 1, move: 1, special: "Area attack", role: "Tank", Icon: getIconComponent(SiNodedotjs) },
-
-    // Enemy Units (Standard Formation)
+  export const formations = {
+    phalanx: [
+        // FRONTEND UNITS (Up front)
+    { id: "react", team: "player", name: "React", ...generateRandomStats("Support"), x: 1, y: 0, range: 1, move: 5,  role: "Support C", Icon: getIconComponent(SiReact) },
+    { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 2, y: 0, range: 5, move: 1,  role: "Support A", Icon: getIconComponent(SiFigma) },
+    { id: "vercel", team: "player", name: "Vercel", ...generateRandomStats("Fighter"), x: 3, y: 0, range: 1, move: 1,  role: "Fighter", Icon: getIconComponent(SiVercel) },
+    { id: "tailwind", team: "player", name: "Tailwind", ...generateRandomStats("Fighter"), x: 4, y: 0, range: 1, move: 1,  role: "Fighter", Icon: getIconComponent(SiTailwindcss) },
+    { id: "nextjs", team: "player", name: "Next.js", ...generateRandomStats("Support"), x: 5, y: 0, range: 5, move: 1,  role: "Support A", Icon: getIconComponent(SiNextdotjs) },
+    { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 6, y: 0, range: 1, move: 5,  role: "Support C", Icon: getIconComponent(SiShadcnui) },
+    
+        // BACKEND UNITS (Behind front line)
+    { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 1, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiTypescript) },
+    { id: "postgresql", team: "player", name: "PostgreSQL", ...generateRandomStats("Tank"), x: 2, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiPostgresql) },
+    { id: "mongodb", team: "player", name: "MongoDB", ...generateRandomStats("Tank"), x: 3, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiMongodb) },
+    { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Tank"), x: 4, y: 1, range: 1, move: 1, support: true,  role: "Tank", Icon: getIconComponent(SiSupabase) },
+    { id: "n8n", team: "player", name: "n8n", ...generateRandomStats("Tank"), x: 5, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiN8N) },
+    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 6, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiNodedotjs) },
+    
+        // Enemy Units (Standard Formation)
     { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 1, y: 7, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
     { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 2, y: 7, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
     { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 3, y: 7, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
@@ -92,79 +92,79 @@ export const formations = {
     { id: "BUG7", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 5, y: 6, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
     { id: "BUG8", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 6, y: 7, range: 1, move: 1, special: "Fast scout", role: "enemy", Icon: getIconComponent(FaBug) },
     { id: "BUG9", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 3, y: 6, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
-    { id: "BUG10", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 2, y: 6, range: 1, move: 1, special: "Resistant armor", role: "enemy", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 4, y: 6, range: 1, move: 2, special: "Infects nearby units on hit", role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("enemy"), x: 6, y: 6, range: 1, move: 2, special: "Spreads on attack", role: "enemy", Icon: getIconComponent(FaWorm) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("enemy"), x: 1, y: 6, range: 1, move: 1, special: "Disables healing", role: "enemy", Icon: getIconComponent(PiVirusFill) }
+    { id: "BUG10", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 2, y: 6, range: 1, move: 1,  role: "enemy", Icon: getIconComponent(FaBug) },
+    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 4, y: 6, range: 1, move: 2,  role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
+    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("enemy"), x: 6, y: 6, range: 1, move: 2,  role: "enemy", Icon: getIconComponent(FaWorm) },
+    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("enemy"), x: 1, y: 6, range: 1, move: 1,  role: "enemy", Icon: getIconComponent(PiVirusFill) }
   ],
   spearhead: [
     // FRONTLINE
-    { id: "react", team: "player", name: "React", ...generateRandomStats("Support"), x: 3, y: 0, range: 1, move: 1, special: "Double hit on first attack", role: "support", Icon: getIconComponent(SiReact) },
-    { id: "vercel", team: "player", name: "Vercel", ...generateRandomStats("Fighter"), x: 2, y: 1, range: 1, move: 1, special: "Fast deploy: can move twice", role: "Fighter", Icon: getIconComponent(SiVercel) },
-    { id: "tailwind", team: "player", name: "Tailwind", ...generateRandomStats("Fighter"), x: 4, y: 1, range: 1, move: 1, special: "Styles the board with power boosts", role: "Fighter", Icon: getIconComponent(SiTailwindcss) },
+    { id: "react", team: "player", name: "React", ...generateRandomStats("Support"), x: 3, y: 0, range: 1, move: 1,  role: "support", Icon: getIconComponent(SiReact) },
+    { id: "vercel", team: "player", name: "Vercel", ...generateRandomStats("Fighter"), x: 2, y: 1, range: 1, move: 1,  role: "Fighter", Icon: getIconComponent(SiVercel) },
+    { id: "tailwind", team: "player", name: "Tailwind", ...generateRandomStats("Fighter"), x: 4, y: 1, range: 1, move: 1,  role: "Fighter", Icon: getIconComponent(SiTailwindcss) },
 
     // MIDFIELD
-    { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 1, y: 2, range: 1, move: 1, special: "Can scan enemies in range", role: "support", Icon: getIconComponent(SiFigma) },
-    { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 5, y: 2, range: 1, move: 1, special: "Buffs UI-based units nearby", role: "support", Icon: getIconComponent(SiShadcnui) },
-    { id: "nextjs", team: "player", name: "Next.js", ...generateRandomStats("Support"), x: 3, y: 2, range: 1, move: 1, special: "Server-side strike from distance", role: "support", Icon: getIconComponent(SiNextdotjs) },
+    { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 1, y: 2, range: 1, move: 1,  role: "support", Icon: getIconComponent(SiFigma) },
+    { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 5, y: 2, range: 1, move: 1,  role: "support", Icon: getIconComponent(SiShadcnui) },
+    { id: "nextjs", team: "player", name: "Next.js", ...generateRandomStats("Support"), x: 3, y: 2, range: 1, move: 1,  role: "support", Icon: getIconComponent(SiNextdotjs) },
 
     // BACKEND
-    { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 1, y: 3, range: 1, move: 1, special: "Always hits for minimum damage", role: "Tank", Icon: getIconComponent(SiTypescript) },
-    { id: "postgresql", team: "player", name: "PostgreSQL", ...generateRandomStats("Tank"), x: 2, y: 3, range: 1, move: 1, special: "Data-driven defense aura", role: "Tank", Icon: getIconComponent(SiPostgresql) },
-    { id: "mongodb", team: "player", name: "MongoDB", ...generateRandomStats("Tank"), x: 3, y: 3, range: 1, move: 1, special: "NoSQL scatter shot", role: "Tank", Icon: getIconComponent(SiMongodb) },
-    { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Tank"), x: 4, y: 3, range: 1, move: 1, support: true, special: "Heals adjacent allies", role: "tank", Icon: getIconComponent(SiSupabase) },
-    { id: "n8n", team: "player", name: "n8n", ...generateRandomStats("Tank"), x: 5, y: 3, range: 1, move: 1, special: "Automates attacks every other turn", role: "Tank", Icon: getIconComponent(SiN8N) },
-    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 6, y: 3, range: 1, move: 1, special: "Area attack", role: "Tank", Icon: getIconComponent(SiNodedotjs) },
+    { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 1, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiTypescript) },
+    { id: "postgresql", team: "player", name: "PostgreSQL", ...generateRandomStats("Tank"), x: 2, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiPostgresql) },
+    { id: "mongodb", team: "player", name: "MongoDB", ...generateRandomStats("Tank"), x: 3, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiMongodb) },
+    { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Tank"), x: 4, y: 3, range: 1, move: 1, support: true,  role: "tank", Icon: getIconComponent(SiSupabase) },
+    { id: "n8n", team: "player", name: "n8n", ...generateRandomStats("Tank"), x: 5, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiN8N) },
+    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 6, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiNodedotjs) },
 
     // ENEMIES
     { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 3, y: 7, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
     { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 2, y: 7, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
     { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 4, y: 7, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
     { id: "BUG4", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 3, y: 6, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 1, y: 6, range: 1, move: 2, special: "Infects nearby units on hit", role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("enemy"), x: 6, y: 6, range: 1, move: 2, special: "Spreads on attack", role: "enemy", Icon: getIconComponent(FaWorm) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("enemy"), x: 2, y: 6, range: 1, move: 1, special: "Disables healing", role: "enemy", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS4", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 0, y: 7, range: 1, move: 2, special: "Infects nearby units on hit", role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
+    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 1, y: 6, range: 1, move: 2,  role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
+    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("enemy"), x: 6, y: 6, range: 1, move: 2,  role: "enemy", Icon: getIconComponent(FaWorm) },
+    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("enemy"), x: 2, y: 6, range: 1, move: 1,  role: "enemy", Icon: getIconComponent(PiVirusFill) },
+    { id: "VIRUS4", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 0, y: 7, range: 1, move: 2,  role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
 
   ],
   ambush: [
     // Ambush units and support in staggered flank
-    { id: "vercel", team: "player", name: "Vercel", ...generateRandomStats("Fighter"), x: 2, y: 1, range: 1, move: 1, special: "Fast deploy: can move twice", role: "Fighter", Icon: getIconComponent(SiVercel) },
-    { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 1, y: 2, range: 1, move: 1, special: "Can scan enemies in range", role: "support", Icon: getIconComponent(SiFigma) },
-    { id: "react", team: "player", name: "React", ...generateRandomStats("Support"), x: 3, y: 1, range: 1, move: 1, special: "Double hit on first attack", role: "support", Icon: getIconComponent(SiReact) },
-    { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 5, y: 1, range: 1, move: 1, special: "Buffs UI-based units nearby", role: "support", Icon: getIconComponent(SiShadcnui) },
-    { id: "tailwind", team: "player", name: "Tailwind", ...generateRandomStats("Fighter"), x: 6, y: 2, range: 1, move: 1, special: "Styles the board with power boosts", role: "Fighter", Icon: getIconComponent(SiTailwindcss) },
+    { id: "vercel", team: "player", name: "Vercel", ...generateRandomStats("Fighter"), x: 2, y: 1, range: 1, move: 1,  role: "Fighter", Icon: getIconComponent(SiVercel) },
+    { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 1, y: 2, range: 1, move: 1,  role: "support", Icon: getIconComponent(SiFigma) },
+    { id: "react", team: "player", name: "React", ...generateRandomStats("Support"), x: 3, y: 1, range: 1, move: 1,  role: "support", Icon: getIconComponent(SiReact) },
+    { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 5, y: 1, range: 1, move: 1,  role: "support", Icon: getIconComponent(SiShadcnui) },
+    { id: "tailwind", team: "player", name: "Tailwind", ...generateRandomStats("Fighter"), x: 6, y: 2, range: 1, move: 1,  role: "Fighter", Icon: getIconComponent(SiTailwindcss) },
 
     // Backend cover
-    { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 2, y: 3, range: 1, move: 1, special: "Always hits for minimum damage", role: "Tank", Icon: getIconComponent(SiTypescript) },
-    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 4, y: 3, range: 1, move: 1, special: "Area attack", role: "Tank", Icon: getIconComponent(SiNodedotjs) },
-    { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Tank"), x: 3, y: 2, range: 1, move: 1, support: true, special: "Heals adjacent allies", role: "tank", Icon: getIconComponent(SiSupabase) },
+    { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 2, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiTypescript) },
+    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 4, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiNodedotjs) },
+    { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Tank"), x: 3, y: 2, range: 1, move: 1, support: true,  role: "tank", Icon: getIconComponent(SiSupabase) },
 
     // Enemies
     { id: "BUG5", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 4, y: 7, range: 1, move: 1, special: "Long-range ping", role: "enemy", Icon: getIconComponent(FaBug) },
     { id: "BUG6", team: "enemy", name: "BUG", ...generateRandomStats("enemy"), x: 5, y: 7, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 1, y: 6, range: 1, move: 2, special: "Infects nearby units on hit", role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("enemy"), x: 6, y: 6, range: 1, move: 2, special: "Spreads on attack", role: "enemy", Icon: getIconComponent(FaWorm) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("enemy"), x: 2, y: 6, range: 1, move: 1, special: "Disables healing", role: "enemy", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS4", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 0, y: 0, range: 1, move: 2, special: "Infects nearby units on hit", role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
+    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 1, y: 6, range: 1, move: 2,  role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
+    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("enemy"), x: 6, y: 6, range: 1, move: 2,  role: "enemy", Icon: getIconComponent(FaWorm) },
+    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("enemy"), x: 2, y: 6, range: 1, move: 1,  role: "enemy", Icon: getIconComponent(PiVirusFill) },
+    { id: "VIRUS4", team: "enemy", name: "Trojan", ...generateRandomStats("enemy"), x: 0, y: 0, range: 1, move: 2,  role: "enemy", Icon: getIconComponent(GiTrojanHorse) },
 
   ], 
   hacker: [
     // FRONTEND UNITS (Up front)
-    { id: "react", team: "player", name: "React", ...generateRandomStats("Support"), x: 1, y: 0, range: 1, move: 5, special: "Double hit on first attack", role: "Support C", Icon: getIconComponent(SiReact) },
-    { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 2, y: 0, range: 5, move: 1, special: "Can scan enemies in range", role: "Support A", Icon: getIconComponent(SiFigma) },
-    { id: "vercel", team: "player", name: "Vercel", ...generateRandomStats("Fighter"), x: 3, y: 0, range: 1, move: 1, special: "Fast deploy: can move twice", role: "Fighter", Icon: getIconComponent(SiVercel) },
-    { id: "tailwind", team: "player", name: "Tailwind", ...generateRandomStats("Fighter"), x: 4, y: 0, range: 1, move: 1, special: "Styles the board with power boosts", role: "Fighter", Icon: getIconComponent(SiTailwindcss) },
-    { id: "nextjs", team: "player", name: "Next.js", ...generateRandomStats("Support"), x: 5, y: 0, range: 5, move: 1, special: "Server-side strike from distance", role: "Support A", Icon: getIconComponent(SiNextdotjs) },
-    { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 6, y: 0, range: 1, move: 5, special: "Buffs UI-based units nearby", role: "Support C", Icon: getIconComponent(SiShadcnui) },
+    { id: "react", team: "player", name: "React", ...generateRandomStats("Support"), x: 1, y: 0, range: 1, move: 5,  role: "Support C", Icon: getIconComponent(SiReact) },
+    { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 2, y: 0, range: 5, move: 1,  role: "Support A", Icon: getIconComponent(SiFigma) },
+    { id: "vercel", team: "player", name: "Vercel", ...generateRandomStats("Fighter"), x: 3, y: 0, range: 1, move: 1,  role: "Fighter", Icon: getIconComponent(SiVercel) },
+    { id: "tailwind", team: "player", name: "Tailwind", ...generateRandomStats("Fighter"), x: 4, y: 0, range: 1, move: 1,  role: "Fighter", Icon: getIconComponent(SiTailwindcss) },
+    { id: "nextjs", team: "player", name: "Next.js", ...generateRandomStats("Support"), x: 5, y: 0, range: 5, move: 1,  role: "Support A", Icon: getIconComponent(SiNextdotjs) },
+    { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 6, y: 0, range: 1, move: 5,  role: "Support C", Icon: getIconComponent(SiShadcnui) },
 
     // BACKEND UNITS (Behind front line)
-    { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 1, y: 1, range: 1, move: 1, special: "Always hits for minimum damage", role: "Tank", Icon: getIconComponent(SiTypescript) },
-    { id: "postgresql", team: "player", name: "PostgreSQL", ...generateRandomStats("Tank"), x: 2, y: 1, range: 1, move: 1, special: "Data-driven defense aura", role: "Tank", Icon: getIconComponent(SiPostgresql) },
-    { id: "mongodb", team: "player", name: "MongoDB", ...generateRandomStats("Tank"), x: 3, y: 1, range: 1, move: 1, special: "NoSQL scatter shot", role: "Tank", Icon: getIconComponent(SiMongodb) },
-    { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Tank"), x: 4, y: 1, range: 1, move: 1, support: true, special: "Heals adjacent allies", role: "Tank", Icon: getIconComponent(SiSupabase) },
-    { id: "n8n", team: "player", name: "n8n", ...generateRandomStats("Tank"), x: 5, y: 1, range: 1, move: 1, special: "Automates attacks every other turn", role: "Tank", Icon: getIconComponent(SiN8N) },
-    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 6, y: 1, range: 1, move: 1, special: "Area attack", role: "Tank", Icon: getIconComponent(SiNodedotjs) },
+    { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 1, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiTypescript) },
+    { id: "postgresql", team: "player", name: "PostgreSQL", ...generateRandomStats("Tank"), x: 2, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiPostgresql) },
+    { id: "mongodb", team: "player", name: "MongoDB", ...generateRandomStats("Tank"), x: 3, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiMongodb) },
+    { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Tank"), x: 4, y: 1, range: 1, move: 1, support: true,  role: "Tank", Icon: getIconComponent(SiSupabase) },
+    { id: "n8n", team: "player", name: "n8n", ...generateRandomStats("Tank"), x: 5, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiN8N) },
+    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 6, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiNodedotjs) },
 
     // Enemy Units (Standard Formation)
     { id: "Hacker", team: "enemy", name: "Hacker", ...generateRandomStats("Hacker"), x: 1, y: 7, range: 1, move: 3, role: "Hacker", Icon: getIconComponent(IoMdPerson) },
@@ -176,7 +176,7 @@ export const formations = {
 
     // Core tank line
     { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 2, y: 4, range: 1, move: 1, special: "Code stability", role: "Tank", Icon: getIconComponent(SiTypescript) },
-    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 3, y: 4, range: 1, move: 1, special: "Area attack", role: "Tank", Icon: getIconComponent(SiNodedotjs) },
+    { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 3, y: 4, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiNodedotjs) },
     { id: "postgresql", team: "player", name: "PostgreSQL", ...generateRandomStats("Tank"), x: 4, y: 4, range: 1, move: 1, special: "DB shield", role: "Tank", Icon: getIconComponent(SiPostgresql) },
 
     // Support
@@ -402,4 +402,5 @@ export const formations = {
     { id: "VIRUS5", team: "enemy", name: "Rootkit", ...generateRandomStats("enemy"), x: 6, y: 4, range: 1, move: 1, role: "enemy", Icon: getIconComponent(FaWorm), special: "None" }
   ]
 
-};
+  };
+  
