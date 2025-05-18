@@ -1,4 +1,3 @@
-import type { ElementType } from 'react';
 import type { ReactElement } from 'react';
 
 export type UnitRole = 'frontend' | 'backend' | 'devops' | 'database' | 'enemy' | 'support' | 'Fighter' | 'Tank' | 'tank';
