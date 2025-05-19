@@ -13,11 +13,8 @@ import {
     SiShadcnui,
   } from "react-icons/si";
   import { FaBug } from "react-icons/fa";
-  import { FaWorm } from "react-icons/fa6";
-  import { GiTrojanHorse } from "react-icons/gi";
-  import { PiVirusFill } from "react-icons/pi";
+  
 import { MdSecurity } from "react-icons/md";
-import { IoMdPerson } from "react-icons/io";
 
   const getIconComponent = (IconComponent: React.ElementType) => () => <IconComponent />;
 
@@ -27,7 +24,7 @@ const generateRandomStats = (role: string) => {
 
   switch (role) {
     //Good
-    case "Security":
+    case "Coder":
       hp = Math.floor(Math.random() * (1500 - 750) + 750);
       maxHp = hp;
       attack = Math.floor(Math.random() * (270 - 140) + 140);
@@ -49,36 +46,36 @@ const generateRandomStats = (role: string) => {
       attack = Math.floor(Math.random() * (50 - 10) + 10);
       break;
       //Bad
-    case "Bug":
+    case "Small Bug":
       hp = Math.floor(Math.random() * (500 - 50) + 50);
       maxHp = hp;
       attack = Math.floor(Math.random() * (50 - 1) + 1);
       break;
-      case "Virus":
+      case "Medium Bug":
         hp = Math.floor(Math.random() * (200 - 50) + 50);
         maxHp = hp;
         attack = Math.floor(Math.random() * (100 - 50) + 50);
         break;
-      case "Trojan":
+      case "Big Bug":
         hp = Math.floor(Math.random() * (300 - 200) + 200);
         maxHp = hp;
         attack = Math.floor(Math.random() * (100 - 50) + 50);
         break;
-        case "Worm":
+        case "Huge Bug":
           hp = Math.floor(Math.random() * (400 - 300) + 300);
           maxHp = hp;
           attack = Math.floor(Math.random() * (100 - 75) + 75);
           break;
        
-      case "Hacker":
+      case "God Bug":
         hp = Math.floor(Math.random() * (2000 - 1250) + 1250);
         maxHp = hp;
         attack = Math.floor(Math.random() * (270 - 140) + 140);
         break;
     default:
-      hp = 100;
-      maxHp = 100;
-      attack = 50;
+      hp = 1;
+      maxHp = 1;
+      attack = 1;
   }
 
   return { hp, maxHp, attack };
@@ -103,20 +100,20 @@ const generateRandomStats = (role: string) => {
     { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 6, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiNodedotjs) },
     
         // Enemy Units (Standard Formation)
-    { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 1, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 2, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 1, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 2, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug3", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
     
-    { id: "VIRUS01", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 4, y: 7, range: 1, move: 1,  role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "VIRUS02", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 5, y: 7, range: 1, move: 1,  role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
+    { id: "Medium Bug01", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 4, y: 7, range: 1, move: 1,  role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug02", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 5, y: 7, range: 1, move: 1,  role: "Huge Bug", Icon: getIconComponent(FaBug) },
 
-    { id: "BUG7", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 6, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG8", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 1, y: 6, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG9", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 2, y: 6, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG10", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 6, range: 1, move: 1,  role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 4, y: 6, range: 1, move: 1,  role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("Worm"), x: 5, y: 6, range: 1, move: 1,  role: "Worm", Icon: getIconComponent(FaWorm) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 6, y: 6, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) }
+    { id: "Small Bug7", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 6, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug8", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 1, y: 6, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug9", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 2, y: 6, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug10", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 6, range: 1, move: 1,  role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug1", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 4, y: 6, range: 1, move: 1,  role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Big Bug", ...generateRandomStats("Big Bug"), x: 5, y: 6, range: 1, move: 1,  role: "Big Bug", Icon: getIconComponent(FaBug) },
+    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 6, y: 6, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) }
   ],
   Spearhead: [
     // FRONTLINE
@@ -137,15 +134,14 @@ const generateRandomStats = (role: string) => {
     { id: "n8n", team: "player", name: "n8n", ...generateRandomStats("Tank"), x: 5, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiN8N) },
     { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 6, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiNodedotjs) },
 
-    // ENEMIES
-    { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 2, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 4, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG4", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 6, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 1, y: 6, range: 1, move: 2,  role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("Worm"), x: 6, y: 6, range: 1, move: 2,  role: "Worm", Icon: getIconComponent(FaWorm) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 2, y: 6, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS4", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 0, y: 7, range: 1, move: 2,  role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 2, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug3", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 4, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug4", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 6, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug1", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 1, y: 6, range: 1, move: 2,  role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Big Bug", ...generateRandomStats("Big Bug"), x: 6, y: 6, range: 1, move: 2,  role: "Big Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug3", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 2, y: 6, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug4", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 0, y: 7, range: 1, move: 2,  role: "Huge Bug", Icon: getIconComponent(FaBug) },
 
   ],
   Ambush: [
@@ -162,15 +158,15 @@ const generateRandomStats = (role: string) => {
     { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Tank"), x: 3, y: 2, range: 1, move: 1, role: "Tank", Icon: getIconComponent(SiSupabase) },
 
     // Enemies
-    { id: "BUG5", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 4, y: 7, range: 1, move: 1,  role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG6", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 5, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 1, y: 6, range: 1, move: 2,  role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("Worm"), x: 6, y: 6, range: 1, move: 2,  role: "Worm", Icon: getIconComponent(FaWorm) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 2, y: 6, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS4", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 0, y: 0, range: 1, move: 2,  role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
+    { id: "Small Bug5", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 4, y: 7, range: 1, move: 1,  role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug6", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 5, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug1", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 1, y: 6, range: 1, move: 2,  role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Big Bug", ...generateRandomStats("Big Bug"), x: 6, y: 6, range: 1, move: 2,  role: "Big Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug3", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 2, y: 6, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug4", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 0, y: 0, range: 1, move: 2,  role: "Huge Bug", Icon: getIconComponent(FaBug) },
 
   ], 
-  Hacker: [
+  GodBug: [
     // FRONTEND UNITS (Up front)
     { id: "react", team: "player", name: "React", ...generateRandomStats("Support"), x: 1, y: 0, range: 1, move: 5,  role: "Support C", Icon: getIconComponent(SiReact) },
     { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 2, y: 0, range: 5, move: 1,  role: "Support A", Icon: getIconComponent(SiFigma) },
@@ -188,7 +184,7 @@ const generateRandomStats = (role: string) => {
     { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 6, y: 1, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiNodedotjs) },
 
     // Enemy Units (Standard Formation)
-    { id: "Hacker", team: "enemy", name: "Hacker", ...generateRandomStats("Hacker"), x: 1, y: 7, range: 1, move: 3, role: "Hacker", Icon: getIconComponent(IoMdPerson) },
+    { id: "God Bug", team: "enemy", name: "God Bug", ...generateRandomStats("God Bug"), x: 1, y: 7, range: 1, move: 3, role: "God Bug", Icon: getIconComponent(FaBug) },
   ], 
   Encircle: [
     // Flanking units
@@ -205,29 +201,29 @@ const generateRandomStats = (role: string) => {
     { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Support"), x: 5, y: 5, range: 1, move: 5,  role: "Support C", Icon: getIconComponent(SiSupabase) },
 
     // Enemy core (7 enemies to match 7 players)
-    { id: "VIRUS5", team: "enemy", name: "Spyware", ...generateRandomStats("Virus"), x: 3, y: 7, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "BUG9", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 2, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG10", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 4, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS6", team: "enemy", name: "Keylogger", ...generateRandomStats("Virus"), x: 1, y: 6, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS7", team: "enemy", name: "Rootkit", ...generateRandomStats("Virus"), x: 5, y: 6, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "BUG11", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 0, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG12", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 6, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug5", team: "enemy", name: "Spyware", ...generateRandomStats("Medium Bug"), x: 3, y: 7, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug9", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 2, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug10", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 4, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug6", team: "enemy", name: "Keylogger", ...generateRandomStats("Medium Bug"), x: 1, y: 6, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug7", team: "enemy", name: "Rootkit", ...generateRandomStats("Medium Bug"), x: 5, y: 6, range: 1, move: 1, role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug11", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 0, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug12", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 6, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
   ], 
   KingsGuard: [
     // Center control
-    { id: "Security", team: "player", name: "Security", ...generateRandomStats("Security"), x: 3, y: 3, range: 2, move: 2,  role: "Security", Icon: getIconComponent(MdSecurity) },
+    { id: "Coder", team: "player", name: "Coder", ...generateRandomStats("Coder"), x: 3, y: 3, range: 2, move: 2,  role: "Coder", Icon: getIconComponent(MdSecurity) },
 
     // Enemy flanking sides (6 enemies to match 1 player)
-    { id: "VIRUS1", team: "enemy", name: "Worm", ...generateRandomStats("Worm"), x: 0, y: 0, range: 1, move: 2,  role: "Worm", Icon: getIconComponent(FaWorm) },
-    { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 6, y: 0, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS2", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 0, y: 6, range: 1, move: 2,  role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 6, y: 6, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 3, y: 7, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS4", team: "enemy", name: "Spyware", ...generateRandomStats("Virus"), x: 1, y: 7, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS5", team: "enemy", name: "Rootkit", ...generateRandomStats("Virus"), x: 5, y: 7, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 2, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG4", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 4, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS6", team: "enemy", name: "Keylogger", ...generateRandomStats("Virus"), x: 3, y: 6, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
+    { id: "Medium Bug1", team: "enemy", name: "Big Bug", ...generateRandomStats("Big Bug"), x: 0, y: 0, range: 1, move: 2,  role: "Big Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 6, y: 0, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 0, y: 6, range: 1, move: 2,  role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 6, y: 6, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug3", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 3, y: 7, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug4", team: "enemy", name: "Spyware", ...generateRandomStats("Medium Bug"), x: 1, y: 7, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug5", team: "enemy", name: "Rootkit", ...generateRandomStats("Medium Bug"), x: 5, y: 7, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug3", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 2, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug4", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 4, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug6", team: "enemy", name: "Keylogger", ...generateRandomStats("Medium Bug"), x: 3, y: 6, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
   ], 
   Vanguard: [
     // Aggressive forward units
@@ -241,12 +237,12 @@ const generateRandomStats = (role: string) => {
     { id: "supabase", team: "player", name: "Supabase", ...generateRandomStats("Support"), x: 4, y: 1, range: 5, move: 1,  role: "Support A", Icon: getIconComponent(SiSupabase) },
 
     // Enemies packed at the back (6 enemies to match 6 players)
-    { id: "BUG11", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS6", team: "enemy", name: "Keylogger", ...generateRandomStats("Virus"), x: 2, y: 6, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS7", team: "enemy", name: "Rootkit", ...generateRandomStats("Virus"), x: 4, y: 6, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "BUG12", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 1, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG13", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 5, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS8", team: "enemy", name: "Malware", ...generateRandomStats("Virus"), x: 3, y: 6, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
+    { id: "Small Bug11", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug6", team: "enemy", name: "Keylogger", ...generateRandomStats("Medium Bug"), x: 2, y: 6, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug7", team: "enemy", name: "Rootkit", ...generateRandomStats("Medium Bug"), x: 4, y: 6, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug12", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 1, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug13", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 5, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug8", team: "enemy", name: "Malware", ...generateRandomStats("Medium Bug"), x: 3, y: 6, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
   ], 
   Wall: [
     // Tank Frontline
@@ -262,14 +258,14 @@ const generateRandomStats = (role: string) => {
     { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 4, y: 1, range: 1, move: 5, role: "Support C", Icon: getIconComponent(SiShadcnui) },
 
     // Enemies advancing (8 enemies to match 8 players)
-    { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS1", team: "enemy", name: "Worm", ...generateRandomStats("Worm"), x: 2, y: 6, range: 1, move: 2, role: "Worm", Icon: getIconComponent(FaWorm) },
-    { id: "VIRUS2", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 4, y: 6, range: 1, move: 2, role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 1, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 5, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 2, y: 7, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS4", team: "enemy", name: "Spyware", ...generateRandomStats("Virus"), x: 4, y: 7, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "BUG4", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 6, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug1", team: "enemy", name: "Big Bug", ...generateRandomStats("Big Bug"), x: 2, y: 6, range: 1, move: 2, role: "Big Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 4, y: 6, range: 1, move: 2, role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 1, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug3", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 5, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug3", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 2, y: 7, range: 1, move: 1, role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug4", team: "enemy", name: "Spyware", ...generateRandomStats("Medium Bug"), x: 4, y: 7, range: 1, move: 1, role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug4", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 6, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
   ], 
   Blitz: [
     // Fast Fighters
@@ -285,12 +281,12 @@ const generateRandomStats = (role: string) => {
     { id: "typescript", team: "player", name: "TypeScript", ...generateRandomStats("Tank"), x: 3, y: 2, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiTypescript) },
 
     // Exposed enemies (6 enemies to match 6 players)
-    { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 2, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS1", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 3, y: 6, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 4, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS2", team: "enemy", name: "Keylogger", ...generateRandomStats("Virus"), x: 1, y: 7, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 5, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS3", team: "enemy", name: "Rootkit", ...generateRandomStats("Virus"), x: 3, y: 7, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 2, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug1", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 3, y: 6, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 4, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Keylogger", ...generateRandomStats("Medium Bug"), x: 1, y: 7, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug3", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 5, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug3", team: "enemy", name: "Rootkit", ...generateRandomStats("Medium Bug"), x: 3, y: 7, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
   ], 
   Wedge: [
     // Spearhead
@@ -309,13 +305,13 @@ const generateRandomStats = (role: string) => {
     { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 2, y: 3, range: 1, move: 1,  role: "Tank", Icon: getIconComponent(SiNodedotjs) },
 
     // Enemy wall (7 enemies to match 7 players)
-    { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 2, y: 6, range: 1, move: 2,  role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("Worm"), x: 4, y: 6, range: 1, move: 2,  role: "Worm", Icon: getIconComponent(FaWorm) },
-    { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 1, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 5, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 2, y: 7, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS4", team: "enemy", name: "Spyware", ...generateRandomStats("Virus"), x: 4, y: 7, range: 1, move: 1,  role: "Virus", Icon: getIconComponent(PiVirusFill) },
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug1", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 2, y: 6, range: 1, move: 2,  role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Big Bug", ...generateRandomStats("Big Bug"), x: 4, y: 6, range: 1, move: 2,  role: "Big Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 1, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug3", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 5, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug3", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 2, y: 7, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug4", team: "enemy", name: "Spyware", ...generateRandomStats("Medium Bug"), x: 4, y: 7, range: 1, move: 1,  role: "Medium Bug", Icon: getIconComponent(FaBug) },
   ], 
   Fortress: [
     // Outer Tank Shell
@@ -330,13 +326,13 @@ const generateRandomStats = (role: string) => {
     { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 3, y: 1, range: 1, move: 5, role: "Support C", Icon: getIconComponent(SiShadcnui) },
 
     // Enemies trying to penetrate the wall (7 enemies to match 7 players)
-    { id: "VIRUS1", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 2, y: 7, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 1, y: 6, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 6, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS2", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 0, y: 7, range: 1, move: 2, role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "VIRUS3", team: "enemy", name: "Worm", ...generateRandomStats("Worm"), x: 4, y: 7, range: 1, move: 2, role: "Worm", Icon: getIconComponent(FaWorm) },
-    { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 1, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG4", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 3, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug1", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 2, y: 7, range: 1, move: 1, role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 1, y: 6, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 6, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 0, y: 7, range: 1, move: 2, role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug3", team: "enemy", name: "Big Bug", ...generateRandomStats("Big Bug"), x: 4, y: 7, range: 1, move: 2, role: "Big Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug3", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 1, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug4", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
   ], 
   Storm: [
     // Random scattered fighters
@@ -353,13 +349,13 @@ const generateRandomStats = (role: string) => {
     { id: "n8n", team: "player", name: "n8n", ...generateRandomStats("Tank"), x: 2, y: 4, range: 1, move: 1, role: "Tank", Icon: getIconComponent(SiN8N) },
 
     // Enemies caught off guard (7 enemies to match 7 players)
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 3, y: 7, range: 1, move: 2, role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 2, y: 6, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("Worm"), x: 4, y: 6, range: 1, move: 2, role: "Worm", Icon: getIconComponent(FaWorm) },
-    { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 1, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "BUG3", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 5, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 2, y: 7, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill) },
-    { id: "VIRUS4", team: "enemy", name: "Spyware", ...generateRandomStats("Virus"), x: 4, y: 7, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill) },
+    { id: "Medium Bug1", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 3, y: 7, range: 1, move: 2, role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 2, y: 6, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Big Bug", ...generateRandomStats("Big Bug"), x: 4, y: 6, range: 1, move: 2, role: "Big Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 1, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug3", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 5, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug3", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 2, y: 7, range: 1, move: 1, role: "Medium Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug4", team: "enemy", name: "Spyware", ...generateRandomStats("Medium Bug"), x: 4, y: 7, range: 1, move: 1, role: "Medium Bug", Icon: getIconComponent(FaBug) },
   ],
   Cross: [
     // Center control
@@ -378,11 +374,11 @@ const generateRandomStats = (role: string) => {
     { id: "node", team: "player", name: "Node.js", ...generateRandomStats("Tank"), x: 1, y: 3, range: 1, move: 1, role: "Tank", Icon: getIconComponent(SiNodedotjs) },
 
     // Enemy flanking sides (5 enemies to match 5 players)
-    { id: "VIRUS1", team: "enemy", name: "Worm", ...generateRandomStats("Worm"), x: 0, y: 0, range: 1, move: 2, role: "Worm", Icon: getIconComponent(FaWorm) },
-    { id: "BUG1", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 6, y: 0, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS2", team: "enemy", name: "Trojan", ...generateRandomStats("Trojan"), x: 0, y: 6, range: 1, move: 2, role: "Trojan", Icon: getIconComponent(GiTrojanHorse) },
-    { id: "BUG2", team: "enemy", name: "BUG", ...generateRandomStats("Bug"), x: 6, y: 6, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug) },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Virus"), x: 3, y: 7, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill) },
+    { id: "Medium Bug1", team: "enemy", name: "Big Bug", ...generateRandomStats("Big Bug"), x: 0, y: 0, range: 1, move: 2, role: "Big Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 6, y: 0, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug2", team: "enemy", name: "Huge Bug", ...generateRandomStats("Huge Bug"), x: 0, y: 6, range: 1, move: 2, role: "Huge Bug", Icon: getIconComponent(FaBug) },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 6, y: 6, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug) },
+    { id: "Medium Bug3", team: "enemy", name: "Ransomware", ...generateRandomStats("Medium Bug"), x: 3, y: 7, range: 1, move: 1, role: "Medium Bug", Icon: getIconComponent(FaBug) },
   ], 
   
   Hive: [
@@ -396,13 +392,13 @@ const generateRandomStats = (role: string) => {
     { id: "figma", team: "player", name: "Figma", ...generateRandomStats("Support"), x: 4, y: 2, range: 5, move: 1, role: "Support A", Icon: getIconComponent(SiFigma) },
 
     // Enemies
-    { id: "BUG1", team: "enemy", name: "Bug", ...generateRandomStats("Bug"), x: 3, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug),  },
-    { id: "BUG2", team: "enemy", name: "Bug", ...generateRandomStats("Trojan"), x: 2, y: 6, range: 1, move: 1, role: "Trojan", Icon: getIconComponent(GiTrojanHorse),  },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("Worm"), x: 4, y: 6, range: 1, move: 1, role: "Worm", Icon: getIconComponent(FaWorm), },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("Virus"), x: 1, y: 5, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill),  },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Bug"), x: 5, y: 5, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug),  },
-    { id: "VIRUS4", team: "enemy", name: "Spyware", ...generateRandomStats("Trojan"), x: 0, y: 4, range: 1, move: 1, role: "Trojan", Icon: getIconComponent(GiTrojanHorse),  },
-    { id: "VIRUS5", team: "enemy", name: "Rootkit", ...generateRandomStats("Worm"), x: 6, y: 4, range: 1, move: 1, role: "Worm", Icon: getIconComponent(FaWorm), }
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Huge Bug"), x: 2, y: 6, range: 1, move: 1, role: "Huge Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Medium Bug1", team: "enemy", name: "Huge Bug", ...generateRandomStats("Big Bug"), x: 4, y: 6, range: 1, move: 1, role: "Big Bug", Icon: getIconComponent(FaBug), },
+    { id: "Medium Bug2", team: "enemy", name: "Big Bug", ...generateRandomStats("Medium Bug"), x: 1, y: 5, range: 1, move: 1, role: "Medium Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Medium Bug3", team: "enemy", name: "Ransomware", ...generateRandomStats("Small Bug"), x: 5, y: 5, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Medium Bug4", team: "enemy", name: "Spyware", ...generateRandomStats("Huge Bug"), x: 0, y: 4, range: 1, move: 1, role: "Huge Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Medium Bug5", team: "enemy", name: "Rootkit", ...generateRandomStats("Big Bug"), x: 6, y: 4, range: 1, move: 1, role: "Big Bug", Icon: getIconComponent(FaBug), }
   ], 
   Snipers: [
     // Player Units
@@ -414,13 +410,13 @@ const generateRandomStats = (role: string) => {
     { id: "shadcn", team: "player", name: "Shadcn UI", ...generateRandomStats("Support"), x: 4, y: 0, range: 7, move: 1, role: "Support A", Icon: getIconComponent(SiShadcnui) },
 
     // Enemies
-    { id: "BUG1", team: "enemy", name: "Bug", ...generateRandomStats("Bug"), x: 3, y: 7, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug), },
-    { id: "BUG2", team: "enemy", name: "Bug", ...generateRandomStats("Trojan"), x: 2, y: 6, range: 1, move: 1, role: "Trojan", Icon: getIconComponent(GiTrojanHorse),  },
-    { id: "VIRUS1", team: "enemy", name: "Trojan", ...generateRandomStats("Worm)"), x: 4, y: 6, range: 1, move: 1, role: "Worm", Icon: getIconComponent(FaWorm),  },
-    { id: "VIRUS2", team: "enemy", name: "Worm", ...generateRandomStats("Virus"), x: 1, y: 5, range: 1, move: 1, role: "Virus", Icon: getIconComponent(PiVirusFill),  },
-    { id: "VIRUS3", team: "enemy", name: "Ransomware", ...generateRandomStats("Bug"), x: 5, y: 5, range: 1, move: 1, role: "Bug", Icon: getIconComponent(FaBug),  },
-    { id: "VIRUS4", team: "enemy", name: "Spyware", ...generateRandomStats("Trojan"), x: 0, y: 4, range: 1, move: 1, role: "Trojan", Icon: getIconComponent(GiTrojanHorse),  },
-    { id: "VIRUS5", team: "enemy", name: "Rootkit", ...generateRandomStats("Worm"), x: 6, y: 4, range: 1, move: 1, role: "Worm", Icon: getIconComponent(FaWorm),}
+    { id: "Small Bug1", team: "enemy", name: "Small Bug", ...generateRandomStats("Small Bug"), x: 3, y: 7, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug), },
+    { id: "Small Bug2", team: "enemy", name: "Small Bug", ...generateRandomStats("Huge Bug"), x: 2, y: 6, range: 1, move: 1, role: "Huge Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Medium Bug1", team: "enemy", name: "Huge Bug", ...generateRandomStats("Big Bug"), x: 4, y: 6, range: 1, move: 1, role: "Big Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Medium Bug2", team: "enemy", name: "Big Bug", ...generateRandomStats("Medium Bug"), x: 1, y: 5, range: 1, move: 1, role: "Medium Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Medium Bug3", team: "enemy", name: "Ransomware", ...generateRandomStats("Small Bug"), x: 5, y: 5, range: 1, move: 1, role: "Small Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Medium Bug4", team: "enemy", name: "Spyware", ...generateRandomStats("Huge Bug"), x: 0, y: 4, range: 1, move: 1, role: "Huge Bug", Icon: getIconComponent(FaBug),  },
+    { id: "Medium Bug5", team: "enemy", name: "Rootkit", ...generateRandomStats("Big Bug"), x: 6, y: 4, range: 1, move: 1, role: "Big Bug", Icon: getIconComponent(FaBug),}
   ]
 
   };
